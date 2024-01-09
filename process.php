@@ -11,14 +11,31 @@
     <h1>Thank you for your order!</h1>
 
     <?php
+
+        //turn on error reporting
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL);
+
+        // define constants
+        const PRICE_PER_SCOOP = 2.50;
+        const WA_TAX_RATE = 0.11;
+
+        // get scoop data
         $scoops = $_POST['scoops'];
         $flavors = $_POST['flavor'];
         $flavorstr = implode(", ", $flavors);
         $cone = $_POST['cone'];
 
+        // calculate total due
+        $subtotal = PRICE_PER_SCOOP + $scoops;
+        $total = $subtotal * WA_TAX_RATE;
+
+        // display scoops
         echo "<p>scoops: $scoops</p>";
         echo "<p>flavors: $flavorstr</p>";
-        echo "<p>Cone: $cone</p>"
+        echo "<p>Cone: $cone</p>";
+        echo "<br><p>Subtotal: $subtotal</p>";
+        echo "<p>Total: $total</p>"
     ?>
 
 
