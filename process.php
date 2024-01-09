@@ -9,5 +9,18 @@
 </head>
 <body>
     <h1>Thank you for your order!</h1>
+
+    <?php
+        $scoops = $_POST['scoops'];
+        $flavors = $_POST['flavor'];
+        $flavorstr = implode(", ", $flavors);
+        $cone = $_POST['cone'];
+
+        echo "<p>scoops: $scoops</p>";
+        echo "<p>flavors: $flavorstr</p>";
+        echo "<p>Cone: $cone</p>"
+    ?>
+
+
 </body>
 </html>
